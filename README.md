@@ -1,3 +1,3 @@
 # DeepWallet
 
-[WARNING] HOLA
+[!NOTE] HOLA
