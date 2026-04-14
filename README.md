@@ -1,3 +1,4 @@
 # DeepWallet
 
-[!NOTE] HOLA
+> [!NOTE]
+La mejor plataforma web para mantener el control de tu dinero.
