@@ -16,8 +16,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "categoria_ingresos")
 public class CategoriaIngreso {
-
-    private Ingreso ingreso;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

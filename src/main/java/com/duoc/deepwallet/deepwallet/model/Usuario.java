@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "usuarios")
 public class Usuario {
 
-    private CategoriaIngreso categoria_ingreso;
-    private CategoriaGasto categoria_gasto;
+    //private CategoriaIngreso categoria_ingreso;
+    //private CategoriaGasto categoria_gasto;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

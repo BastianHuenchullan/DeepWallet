@@ -60,7 +60,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>
-			<artifactId>myusql-connector-j</artifactId>
+			<artifactId>mysql-connector-j</artifactId>
 		</dependency>
 	</dependencies>
 

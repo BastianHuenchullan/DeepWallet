@@ -18,8 +18,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "gastos")
 public class Gasto {
 
-    private Usuario usuario;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
