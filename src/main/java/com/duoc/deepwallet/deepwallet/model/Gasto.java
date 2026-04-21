@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -18,9 +20,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "gastos")
 public class Gasto {
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoriagasto_fk")
+    private CategoriaGasto categoriaGasto;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_gasto;
 
     @NotNull
     private Integer valor;
