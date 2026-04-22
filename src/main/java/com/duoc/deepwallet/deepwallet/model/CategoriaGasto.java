@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "categoria_gastos")
 public class CategoriaGasto {
     
-    @OneToMany(mappedBy = "id_gasto")
+    @OneToMany
     private List<Gasto> gastos;
 
     @Id

@@ -20,8 +20,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "gastos")
 public class Gasto {
 
-    @ManyToOne
-    @JoinColumn(name = "id_categoriagasto_fk")
+    @ManyToOne  
     private CategoriaGasto categoriaGasto;
 
     @Id
