@@ -1,8 +1,9 @@
-package com.duoc.deepwallet.deepwallet.repository;
+package com.duoc.deepwallet.repository;
 
-import com.duoc.deepwallet.deepwallet.model.CategoriaIngreso;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.duoc.deepwallet.model.CategoriaIngreso;
 
 @Repository
 public interface CategoriaIngresoRepository extends JpaRepository<CategoriaIngreso, Integer> {

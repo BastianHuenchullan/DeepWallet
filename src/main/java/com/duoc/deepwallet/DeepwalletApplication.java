@@ -1,4 +1,4 @@
-package com.duoc.deepwallet.deepwallet;
+package com.duoc.deepwallet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

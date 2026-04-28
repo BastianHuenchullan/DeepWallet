@@ -1,10 +1,13 @@
-package com.duoc.deepwallet.deepwallet.model;
+package com.duoc.deepwallet.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,16 +16,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "usuarios")
-public class Usuario {
+@Table(name = "gastos")
+public class Gasto {
 
-    //private CategoriaIngreso categoria_ingreso;
-    //private CategoriaGasto categoria_gasto;
+    @ManyToOne
+    private CategoriaGasto categoriaGastoaaa;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_gasto;
+
+    @NotNull
+    private Integer valor;
 
     @NotBlank
-    private String nombre;
+    private String descripcion;
 }
