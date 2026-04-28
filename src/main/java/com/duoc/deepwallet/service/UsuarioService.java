@@ -15,6 +15,23 @@ public class UsuarioService {
     public List<Usuario> getUsuarios() {
         return usuarioRepository.findAll();
     }
+
+    public Usuario saveUsuario(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+
+    public Usuario getUsuarioId(int id) {
+        return usuarioRepository.findById(id).orElse(null);
+    }
+
+    public Usuario updateUsuario(Usuario usuario) {
+        if (usuario.getId() == null || !usuarioRepository.existsById(usuario.getId())) {
+            return null;
+        }
+        return usuarioRepository.save(usuario);
+    }
+
+    public void deleteUsuario(int id) {
         usuarioRepository.deleteById(id);
     }
 
