@@ -1,7 +1,7 @@
 package com.duoc.deepwallet.controller;
 
-import com.duoc.deepwallet.dto.UsuarioPerfilDto;
-import com.duoc.deepwallet.dto.UsuarioRegistroDto;
+import com.duoc.deepwallet.dto.UsuarioPerfilDTO;
+import com.duoc.deepwallet.dto.UsuarioRegistroDTO;
 import com.duoc.deepwallet.model.Usuario;
 import com.duoc.deepwallet.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -25,7 +25,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/registro")
-    public ResponseEntity<UsuarioPerfilDto> registrarUsuario(@Valid @RequestBody UsuarioRegistroDto registroDto) {
+    public ResponseEntity<UsuarioPerfilDTO> registrarUsuario(@Valid @RequestBody UsuarioRegistroDTO registroDto) {
         Usuario usuario = new Usuario();
         usuario.setNombre(registroDto.getNombreUsuario());
         usuario.setEmail(registroDto.getEmail());
@@ -33,7 +33,7 @@ public class UsuarioController {
         
         Usuario guardado = usuarioService.saveUsuario(usuario);
         
-        UsuarioPerfilDto perfil = new UsuarioPerfilDto(
+        UsuarioPerfilDTO perfil = new UsuarioPerfilDTO(
             guardado.getId(), 
             guardado.getNombre(), 
             guardado.getEmail()

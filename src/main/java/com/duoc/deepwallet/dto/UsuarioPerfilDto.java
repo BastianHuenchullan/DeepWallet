@@ -10,13 +10,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UsuarioPerfilDto {
+public class UsuarioPerfilDTO {
     
     private Integer id;
+
     @NotBlank
     private String nombreUsuario;
+
     @NotBlank
     @Email
     private String email;
-    
 }
