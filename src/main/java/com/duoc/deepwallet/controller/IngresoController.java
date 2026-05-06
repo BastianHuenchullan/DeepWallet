@@ -19,11 +19,13 @@ public class IngresoController {
 
     @GetMapping
     public ResponseEntity<List<Ingreso>> listarIngresos() {
+        System.out.println("Obteniendo todos los Ingresos.");
         return ResponseEntity.ok(ingresoService.getIngresos());
     }
 
     @PostMapping
     public ResponseEntity<Ingreso> agregarIngreso(@Valid @RequestBody Ingreso ingreso) {
+        System.out.println("Agregando un Ingreso.");
         return ResponseEntity.status(HttpStatus.CREATED).body(ingresoService.saveIngreso(ingreso));
     }
 
@@ -31,8 +33,10 @@ public class IngresoController {
     public ResponseEntity<Ingreso> buscarIngreso(@PathVariable int id) {
         Ingreso ingreso = ingresoService.getIngresoId(id);
         if (ingreso == null) {
+            System.out.println("No se ha encontrado el ingreso con la id " + id + ".");
             return ResponseEntity.notFound().build();
         }
+        System.out.println("El ingreso con la id " + id + " fue encontrado.");
         return ResponseEntity.ok(ingreso);
     }
 
@@ -41,14 +45,17 @@ public class IngresoController {
         ingreso.setId(id);
         Ingreso actualizado = ingresoService.updateIngreso(ingreso);
         if (actualizado == null) {
+            System.out.println("No se ha encontrado el ingreso con la id " + id + ".");
             return ResponseEntity.notFound().build();
         }
+        System.out.println("El ingreso con la id " + id + " fue actualizado.");
         return ResponseEntity.ok(actualizado);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarIngreso(@PathVariable int id) {
         ingresoService.deleteIngreso(id);
+        System.out.println("El ingreso con la id " + id + " ha sido eliminado.");
         return ResponseEntity.noContent().build();
     }
 }

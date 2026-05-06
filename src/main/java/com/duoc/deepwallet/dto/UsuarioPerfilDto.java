@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UsuarioPerfilDTO {
+public class UsuarioPerfilDto {
     
     private Integer id;
 

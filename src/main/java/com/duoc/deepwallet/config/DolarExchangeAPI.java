@@ -1,4 +1,4 @@
-package com.duoc.deepwallet.api;
+package com.duoc.deepwallet.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

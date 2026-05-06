@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UsuarioRegistroDTO {
+public class UsuarioRegistroDto {
 
     @NotBlank
     private String nombreUsuario;
