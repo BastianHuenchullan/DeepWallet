@@ -1,9 +1,17 @@
 # DeepWallet
 
 > [!NOTE]
-La mejor plataforma web para mantener el control de tu dinero.
+Este programa ayuda a organizar ingresos y gastos de una persona agrupandolos en categorías (ej. Comida, Transporte, Suscripciones, etc.) para llevar un mejor registro de tu flujo de dinero, realizando peticiones HTTP a través de Postman para agregar, modificar, listar o eliminar los datos. También, tiene la función de organizar automáticamente tablas dentro de una base de datos MySQL.
 
-> [!NOTE]
+**Requisitos:**
+
+- IDE: Visual Studio Code
+- Librerías instaladas: Extension Pack for Java
+- MySQL (XAMPP / Laragon / HeidiSQL): localhost:3306 + root
+- Tener Java instalado (JDK 21+)
+- Postman
+- Maven
+
 **Autores:**
 
 - Bastian Huenchullan (ba.huenchullan@duocuc.cl)
