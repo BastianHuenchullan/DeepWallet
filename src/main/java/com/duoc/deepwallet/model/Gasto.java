@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Gasto {
 
     @ManyToOne
-    private CategoriaGasto categoriaGastoaaa;
+    private CategoriaGasto categoriaGasto;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

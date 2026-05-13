@@ -9,7 +9,7 @@ import com.duoc.deepwallet.repository.IngresoRepository;
 
 @Service
 public class IngresoService {
-    
+
     @Autowired
     private IngresoRepository ingresoRepository;
 
@@ -35,5 +35,4 @@ public class IngresoService {
     public void deleteIngreso(int id) {
         ingresoRepository.deleteById(id);
     }
-
 }

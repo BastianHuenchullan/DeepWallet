@@ -1,7 +1,6 @@
 package com.duoc.deepwallet.controller;
 
 import com.duoc.deepwallet.dto.UsuarioPerfilDto;
-import com.duoc.deepwallet.dto.UsuarioRegistroDto;
 import com.duoc.deepwallet.model.Usuario;
 import com.duoc.deepwallet.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -25,33 +24,21 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.getUsuarios());
     }
 
-    @PostMapping("/registro")
-    public ResponseEntity<UsuarioPerfilDto> registrarUsuario(@Valid @RequestBody UsuarioRegistroDto registroDto) {
-        Usuario usuario = new Usuario();
-        usuario.setNombre(registroDto.getNombreUsuario());
-        usuario.setEmail(registroDto.getEmail());
-        usuario.setPassword(registroDto.getPassword());
-        
-        Usuario guardado = usuarioService.saveUsuario(usuario);
-        
-        UsuarioPerfilDto perfil = new UsuarioPerfilDto(
-            guardado.getId(), 
-            guardado.getNombre(), 
-            guardado.getEmail()
-        );
-        System.out.println("Agregando un usuario.");
-        return ResponseEntity.status(HttpStatus.CREATED).body(perfil);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> buscarUsuario(@PathVariable int id) {
         Usuario usuario = usuarioService.getUsuarioId(id);
-        if (usuario == null) {
+    if (usuario == null) {
             System.out.println("No se ha encontrado el usuario con la id " + id + ".");
             return ResponseEntity.notFound().build();
         }
         System.out.println("El usuario con la id " + id + " fue encontrado.");
         return ResponseEntity.ok(usuario);
+    }
+
+    @PostMapping("/registro")
+    public ResponseEntity<Usuario> registrarUsuario(@Valid @RequestBody Usuario usuario) {
+        System.out.println("Agregando un usuario.");
+        return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.saveUsuario(usuario));
     }
 
     @PutMapping("/{id}")
@@ -72,5 +59,4 @@ public class UsuarioController {
         System.out.println("El usuario con la id " + id + " ha sido eliminado.");
         return ResponseEntity.noContent().build();
     }
-    
 }
