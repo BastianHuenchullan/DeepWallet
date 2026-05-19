@@ -23,7 +23,7 @@ public class CategoriaIngresoController {
         return ResponseEntity.ok(categoriaIngresoService.getCategoriasIngresos());
     }
 
-    @PostMapping
+    @PostMapping("/registro")
     public ResponseEntity<CategoriaIngreso> agregarCategoriaIngreso(@Valid @RequestBody CategoriaIngreso categoriaIngreso) {
         System.out.println("Agregando una Categoria de Ingreso.");
         return ResponseEntity.status(HttpStatus.CREATED).body(categoriaIngresoService.saveCategoriaIngreso(categoriaIngreso));

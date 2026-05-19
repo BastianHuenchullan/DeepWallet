@@ -26,9 +26,6 @@ public class Usuario {
     private Integer id;
 
     @NotBlank
-    private String run;
-
-    @NotBlank
     private String nombre;
 
     @NotBlank
@@ -46,12 +43,4 @@ public class Usuario {
 
     @NotBlank
     private String genero;
-
-    @NotNull
-    private String ocupacion;
-
-    @NotNull
-    private Integer telefono;
-    
-    private LocalDate fechaRegistro;
 }

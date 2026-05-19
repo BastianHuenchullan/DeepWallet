@@ -23,7 +23,7 @@ public class CategoriaGastoController {
         return ResponseEntity.ok(categoriaGastoService.getCategoriasGastos());
     }
 
-    @PostMapping
+    @PostMapping("/registro")
     public ResponseEntity<CategoriaGasto> agregarCategoriaGasto(@Valid @RequestBody CategoriaGasto categoriaGasto) {
         System.out.println("Agregando una Categoria de Gasto.");
         return ResponseEntity.status(HttpStatus.CREATED).body(categoriaGastoService.saveCategoriaGasto(categoriaGasto));

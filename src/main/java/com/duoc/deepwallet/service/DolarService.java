@@ -11,13 +11,13 @@ import com.duoc.deepwallet.dto.ValorDolarDto;
 public class DolarService {
 
     @Autowired
-    @Qualifier("fastforexWebClient")
-    private WebClient dolarWebClient;
+    @Qualifier("dolarapiWebClient")
+    private WebClient dolarapiWebClient;
     
     public ValorDolarDto obtenerDolar() {
-        return dolarWebClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .build())
+        return dolarapiWebClient.get()
+                .uri(uriBuilder -> uriBuilder        
+                .build())
                 .retrieve()
                 .bodyToMono(ValorDolarDto.class)
                 .block();

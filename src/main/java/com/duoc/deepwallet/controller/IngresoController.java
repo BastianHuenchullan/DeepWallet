@@ -23,7 +23,7 @@ public class IngresoController {
         return ResponseEntity.ok(ingresoService.getIngresos());
     }
 
-    @PostMapping
+    @PostMapping("/registro")
     public ResponseEntity<Ingreso> agregarIngreso(@Valid @RequestBody Ingreso ingreso) {
         System.out.println("Agregando un Ingreso.");
         return ResponseEntity.status(HttpStatus.CREATED).body(ingresoService.saveIngreso(ingreso));

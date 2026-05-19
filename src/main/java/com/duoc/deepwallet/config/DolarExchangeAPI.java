@@ -8,13 +8,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class DolarExchangeAPI {
 
-    @Value("${fastforex.base-url}")
-    private String FastForexBaseUrl;
+    @Value("${dolarapi.base-url}")
+    private String dolarapiBaseUrl;
 
     @Bean
-    public WebClient fastforexWebClient() {
+    public WebClient dolarapiWebClient() {
         return WebClient.builder()
-                .baseUrl(FastForexBaseUrl)
+                .baseUrl(dolarapiBaseUrl)
                 .defaultHeader("Accept", "application/json")
                 .build();
     }

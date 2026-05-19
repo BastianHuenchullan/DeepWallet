@@ -17,7 +17,6 @@ public class DolarController {
 
     @GetMapping
     public ResponseEntity<ValorDolarDto> dolar() {
-
         ValorDolarDto resultado = dolarService.obtenerDolar();
         System.out.println("Valor del Dolar a CLP obtenido.");
         return ResponseEntity.ok(resultado);

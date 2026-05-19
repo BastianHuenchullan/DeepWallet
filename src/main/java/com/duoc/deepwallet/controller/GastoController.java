@@ -23,7 +23,7 @@ public class GastoController {
         return ResponseEntity.ok(gastoService.getGastos());
     }
 
-    @PostMapping
+    @PostMapping("/registro")
     public ResponseEntity<Gasto> agregarGasto(@Valid @RequestBody Gasto gasto) {
         System.out.println("Agregando un Gasto.");
         return ResponseEntity.status(HttpStatus.CREATED).body(gastoService.saveGasto(gasto));
