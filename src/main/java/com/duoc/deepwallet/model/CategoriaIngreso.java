@@ -19,7 +19,7 @@ public class CategoriaIngreso {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer id_categoriaingreso;
 
     @NotBlank
     private String nombre_categoria;

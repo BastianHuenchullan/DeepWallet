@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
@@ -19,16 +20,21 @@ import lombok.NoArgsConstructor;
 @Table(name = "gastos")
 public class Gasto {
 
-    @ManyToOne
-    private CategoriaGasto categoriaGasto;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_gasto;
+    private Integer id;
 
     @NotNull
     private Integer valor;
 
     @NotBlank
     private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_gasto_id")
+    private CategoriaGasto categoriaGasto;
 }

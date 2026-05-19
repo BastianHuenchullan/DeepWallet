@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import com.duoc.deepwallet.model.Ingreso;
 import com.duoc.deepwallet.repository.IngresoRepository;
 
-
 @Service
 public class IngresoService {
 

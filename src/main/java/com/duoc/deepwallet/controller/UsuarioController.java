@@ -44,13 +44,13 @@ public class UsuarioController {
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> actualizarUsuario(@PathVariable int id, @Valid @RequestBody Usuario usuario) {
         usuario.setId(id);
-        Usuario actualizado = usuarioService.updateUsuario(usuario);
-        if (actualizado == null) {
+        Usuario usuarioActualizado = usuarioService.updateUsuario(usuario);
+        if (usuarioActualizado == null) {
             System.out.println("No se ha encontrado el usuario con la id " + id + ".");
             return ResponseEntity.notFound().build();
         }
         System.out.println("El usuario con la id " + id + " fue actualizado.");
-        return ResponseEntity.ok(actualizado);
+        return ResponseEntity.ok(usuarioActualizado);
     }
 
     @DeleteMapping("/{id}")
@@ -58,5 +58,22 @@ public class UsuarioController {
         usuarioService.deleteUsuario(id);
         System.out.println("El usuario con la id " + id + " ha sido eliminado.");
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/perfil")
+    public ResponseEntity<UsuarioPerfilDto> obtenerPerfilUsuario(@PathVariable int id) {
+        Usuario usuario = usuarioService.getUsuarioId(id);
+        if (usuario == null) {
+            System.out.println("No se ha encontrado el usuario con la id " + id + ".");
+            return ResponseEntity.notFound().build();
+        }
+
+        UsuarioPerfilDto dto = new UsuarioPerfilDto(
+            usuario.getId(), 
+            usuario.getNombre(), 
+            usuario.getSaldo()
+        );
+        System.out.println("Perfil DTO del usuario " + id + " enviado correctamente.");
+        return ResponseEntity.ok(dto);
     }
 }
