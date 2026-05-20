@@ -24,7 +24,7 @@ Inicia el servicio de MySQL (usando XAMPP, Laragon, etc.) con en el puerto por d
 
 En caso de algún error o querer utilizar otro puerto como por ejemplo el 3307, debes ir a src/main/resources/application.properties y actualizar esta línea:
 
-> spring.datasource.url=jdbc:mysql://localhost:3307/deepwallet?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+> spring.datasource.url=jdbc:mysql://localhost:3306/deepwallet?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
 
 ### 3. Ejecutar la aplicación
 
