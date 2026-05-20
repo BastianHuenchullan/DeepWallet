@@ -5,27 +5,48 @@ Este programa ayuda a organizar ingresos y gastos de una persona agrupandolos en
 
 **Requisitos:**
 
-- IDE: Visual Studio Code
-- Librerías instaladas: Extension Pack for Java
-- MySQL (XAMPP / Laragon / HeidiSQL): localhost:3306 + root
-- Tener Java instalado (JDK 21+)
-- Postman
-- Maven
+- **IDE Recomendada**: Visual Studio Code (con la extensión *Extension Pack for Java* instalada)
+- **Entorno de Java: JDK 21+**
+- **Base de Datos:** MySQL (Se puede utilizar XAMPP, Laragon, etc.) y un cliente como HeidiSQL
+- **Herramienta para peticiones HTTP:** Postman
+- **Gestor de dependencias**: Maven
 
-**Autores:**
+## ¿Cómo ejecutar el proyecto? (Get Started)
+
+### 1. Clonar y abrir el repositorio
+Abre la terminal y clona este repositorio en tu máquina local. Luego, abre la carpeta con Visual Studio Code.
+
+> git clone [https://github.com/BastianHuenchullan/DeepWallet.git](https://github.com/BastianHuenchullan/DeepWallet.git)
+
+### 2. Configurar la Base de Datos
+
+Inicia el servicio de MySQL (usando XAMPP, Laragon, etc.) con en el puerto por defecto 3306.
+
+En caso de algún error o querer utilizar otro puerto como por ejemplo el 3307, debes ir a src/main/resources/application.properties y actualizar esta línea:
+
+> spring.datasource.url=jdbc:mysql://localhost:3307/deepwallet?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+
+### 3. Ejecutar la aplicación
+
+- En Visual Studio Code, busca el archivo principal DeepwalletApplication.java y ejecútalo con "Run Java".
+- Spring Boot va a crear la base de datos DeepWallet automáticamente con todas sus tablas, relaciones y tipos de datos.
+- (Opcional) Puedes abrir HeidiSQL para conectarte con el usuario root y el puerto establecido anteriormente para verificar que las tablas se hayan creado correctamente.
+
+### 4. Configurar Postman
+
+- Para interactuar con la aplicación, abriremos Postman.
+- Pon "Import" y selecciona el archivo deepwallet.postman_collection.json que se encuentra dentro de la carpeta /postman de este repositorio.
+
+### 5. Realizar peticiones HTTP y usar API
+
+- CRUD: Puedes obtener (GET), crear (POST), actualizar (PUT) y eliminar (DELETE) los Usuarios, Ingresos, Gastos, Categorías de Ingresos y Categorías de Gastos.
+- DTO: Se pueden realizar peticiones tipo GET a un Usuario mediante un DTO (Data Transfer Object), para ver datos básicos como el id, nombre y saldo, evitando exponer información privada e importante.
+- API Dólar: También existe un Endpoint con un filtro DTO para consultar el precio actual del Dólar a CLP.
+
+Puedes modificar los datos a enviar desde el "Body" en Postman, ya sea para la creación (POST) o actualización (PUT) sobre un registro en específico. Debes cambiar el ID en la URL de la petición (ej. /api/usuarios/1).
+
+## Autores:
 
 - Bastian Huenchullan (ba.huenchullan@duocuc.cl)
 - Matías Cabezas (mat.cabezasc@duocucuc.cl)
 - Daniel Escalante (da.escalante@duocuc.cl)
-
-## ¿Cómo ejecutar el proyecto? (Getstarted)
-
-1. git clone
-2. Abrir el proyecto
-3. Iniciar algo como XAMPP o Laragon con el puerto 3306 para MySQL (si no funciona cambiarlo al puerto ej. 3307)
-4. En caso de cambiar el puerto también cambiarlo en src/main/resources/application.properties (spring.datasource.url=jdbc:mysql://localhost:3307/deepwallet?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC)
-5. Hacerle Run Java a DeepwalletApplication.java
-6. Abrir HeidiSQL y conectarse con el usuario root y el puerto establecido, para sucesivamente poder ver todas las tablas creadas automáticamente, con sus tipos de datos y sus relaciones
-7. Abrir Postman
-8. Importar deepwallet.postman_collection.json desde el directorio de postman dentro del repositorio clonado de Deepwallet
-9. Realizar peticiones HTTP para hacer CRUD de Usuarios, Ingresos, Gastos, Categorías de Ingresos, Categorías de Gastos. Adicionalmente, se pueden hacer peticiones HTTP tipo GET a un Usuario (DTO) para ver datos básicos de el Usuario como el id, nombre, saldo, así evitando exponer información privada importante. También puedes hacer una petición HTTP tipo GET a una API con un filtro DTO para poder ver el precio del Dolar a CLP actual. (Puedes modificar los datos desde el Body en Postman, ya sea para crear con un POST o actualizar información ya existente con un PUT). Puedes cambiar el ID modificando el último valor del URL de la petición HTTP en Postman.
