@@ -25,7 +25,7 @@ public class CategoriaGastoService {
     }
 
     public CategoriaGasto updateCategoriaGasto(CategoriaGasto categoriaGasto) {
-        if (categoriaGasto.getId_categoriagasto() == null || !categoriaGastoRepository.existsById(categoriaGasto.getId_categoriagasto())) {
+        if (categoriaGasto.getId() == null || !categoriaGastoRepository.existsById(categoriaGasto.getId())) {
             return null;
         }
         return categoriaGastoRepository.save(categoriaGasto);

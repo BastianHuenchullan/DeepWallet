@@ -4,9 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -17,24 +16,29 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "gastos")
-public class Gasto {
+@Table(name = "perfilusuarios")
+public class PerfilUsuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
-    private Integer valor;
+    @NotBlank
+    private String nombre;
 
     @NotBlank
-    private String descripcion;
+    @Email
+    private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "perfil_usuario_id")
-    private PerfilUsuario perfilUsuario;
+    @NotBlank
+    private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_gasto_id")
-    private CategoriaGasto categoriaGasto;
+    @NotNull
+    private Integer saldo;
+
+    @NotNull
+    private Integer edad;
+
+    @NotBlank
+    private String genero;
 }

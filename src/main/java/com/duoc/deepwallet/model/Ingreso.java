@@ -31,8 +31,8 @@ public class Ingreso {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    @JoinColumn(name = "perfil_usuario_id")
+    private PerfilUsuario perfilUsuario;
 
     @ManyToOne
     @JoinColumn(name = "categoria_ingreso_id")

@@ -25,7 +25,7 @@ public class CategoriaIngresoService {
     }
 
     public CategoriaIngreso updateCategoriaIngreso(CategoriaIngreso categoriaIngreso) {
-        if (categoriaIngreso.getId_categoriaingreso() == null || !categoriaIngresoRepository.existsById(categoriaIngreso.getId_categoriaingreso())) {
+        if (categoriaIngreso.getId() == null || !categoriaIngresoRepository.existsById(categoriaIngreso.getId())) {
             return null;
         }
         return categoriaIngresoRepository.save(categoriaIngreso);

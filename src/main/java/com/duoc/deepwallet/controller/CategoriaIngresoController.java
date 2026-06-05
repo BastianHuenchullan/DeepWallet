@@ -42,7 +42,7 @@ public class CategoriaIngresoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<CategoriaIngreso> actualizarCategoriaIngreso(@PathVariable int id, @Valid @RequestBody CategoriaIngreso categoriaIngreso) {
-        categoriaIngreso.setId_categoriaingreso(id);
+        categoriaIngreso.setId(id);
         CategoriaIngreso actualizado = categoriaIngresoService.updateCategoriaIngreso(categoriaIngreso);
         if (actualizado == null) {
             System.out.println("No se ha encontrado la categoria de ingreso con la id " + id + ".");

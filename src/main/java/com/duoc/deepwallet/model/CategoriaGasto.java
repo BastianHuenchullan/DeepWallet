@@ -19,7 +19,7 @@ public class CategoriaGasto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_categoriagasto;
+    private Integer id;
 
     @NotBlank
     private String nombre_categoria;

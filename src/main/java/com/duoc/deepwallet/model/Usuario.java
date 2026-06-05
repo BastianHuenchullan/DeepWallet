@@ -1,15 +1,6 @@
 package com.duoc.deepwallet.model;
 
-import java.time.LocalDate;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,22 +16,16 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
-    private String nombre;
+    @Column(unique = true, nullable = false)
+    private String username;
 
-    @NotBlank
-    @Email
-    private String email;
-
-    @NotBlank
+    @Column(nullable = false)
     private String password;
 
-    @NotNull
-    private Integer saldo;
-
-    @NotNull
-    private Integer edad;
-
-    @NotBlank
-    private String genero;
+    /**
+     * Rol del usuario. Valores esperados: "ROLE_USER" o "ROLE_ADMIN".
+     * Spring Security usa el prefijo ROLE_ para los métodos hasRole().
+     */
+    @Column(nullable = false)
+    private String role;
 }
