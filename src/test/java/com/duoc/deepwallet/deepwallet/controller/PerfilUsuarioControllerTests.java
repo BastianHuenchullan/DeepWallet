@@ -10,33 +10,37 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import com.duoc.deepwallet.controller.CategoriaIngresoController;
-import com.duoc.deepwallet.model.CategoriaIngreso;
+
+import com.duoc.deepwallet.controller.PerfilUsuarioController;
 import com.duoc.deepwallet.model.PerfilUsuario;
-import com.duoc.deepwallet.service.CategoriaIngresoService;
+import com.duoc.deepwallet.service.PerfilUsuarioService;
 
 @ExtendWith(MockitoExtension.class)
-class DeepwalletApplicationTests {
+class PerfilUsuarioControllerTests {
 
 	@Mock
-	private CategoriaIngresoService categoriaIngresoService;
+	private PerfilUsuarioService perfilUsuarioService;
 
 	@InjectMocks
-	private CategoriaIngresoController categoriaIngresoController;
+	private PerfilUsuarioController perfilUsuarioController;
 
 	@Test
-    void crearCategioriaIngreso_retorna201_cuandoExisteSaldo() {
+    void crearPerfilUsuario_retorna201_cuandoExisteSaldo() {
 
-    CategoriaIngreso CIngreso = new CategoriaIngreso(
-        1,
-        "Sueldo"
-
+    PerfilUsuario usuario = new PerfilUsuario(
+		    1,
+            "Pepito",
+            "pepito@gmail.com",
+            "pepito123",
+            50000,
+            19,
+            "masculino"
     );
- 
-    when(categoriaIngresoService.saveCategoriaIngreso(CIngreso))
-            .thenReturn(CIngreso);
 
-    var respuesta = categoriaIngresoController.agregarCategoriaIngreso(CIngreso);
+    when(perfilUsuarioService.savePerfilUsuario(usuario))
+            .thenReturn(usuario);
+
+    var respuesta = perfilUsuarioController.registrarPerfilUsuario(usuario);
 
     assertNotNull(respuesta);
     assertEquals(HttpStatus.CREATED, respuesta.getStatusCode());
@@ -44,7 +48,7 @@ class DeepwalletApplicationTests {
     var body = respuesta.getBody();
     assertNotNull(body);
 
-    assertEquals("Sueldo", body.getNombre_categoria());
+    assertEquals(50000, body.getSaldo());
  }
 
 }

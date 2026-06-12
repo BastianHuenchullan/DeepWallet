@@ -10,16 +10,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import com.duoc.deepwallet.controller.CategoriaIngresoController;
 import com.duoc.deepwallet.controller.IngresoController;
 import com.duoc.deepwallet.model.CategoriaIngreso;
 import com.duoc.deepwallet.model.Ingreso;
 import com.duoc.deepwallet.model.PerfilUsuario;
-import com.duoc.deepwallet.service.CategoriaIngresoService;
 import com.duoc.deepwallet.service.IngresoService;
 
 @ExtendWith(MockitoExtension.class)
-class DeepwalletApplicationTests {
+class IngresoControllerTests {
 
 	@Mock
 	private IngresoService ingresoService;
@@ -41,11 +39,11 @@ class DeepwalletApplicationTests {
             "pepito123",
             50000,
             19,
-            "masculino"
+            "Masculino"
     );
 
     Ingreso Ingreso = new Ingreso(
-        1, 5000,"Comida",usuario,CIngreso
+        1, 5000, "Propina", usuario, CIngreso
         
     );
 
@@ -60,7 +58,7 @@ class DeepwalletApplicationTests {
     var body = respuesta.getBody();
     assertNotNull(body);
 
-    assertEquals("comida", body.getDescripcion());
+    assertEquals("Propina", body.getDescripcion());
  }
 
 }
